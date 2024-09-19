@@ -33,7 +33,7 @@ body {
 }
 
 .change-line-color {
-  background-color: theme("colors.system.green80");
+  background-color: theme("colors.system.green70");
 }
 
 .pulse-animation {
