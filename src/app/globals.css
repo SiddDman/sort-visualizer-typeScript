@@ -31,6 +31,6 @@ body {
   background-color: theme("colors.system.blue50");
 }
 
-.changed-line-color {
-  background-color: theme("colors.system.green60");
+.change-line-color {
+  background-color: theme("colors.system.green80");
 }

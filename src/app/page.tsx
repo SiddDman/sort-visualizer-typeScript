@@ -3,9 +3,11 @@
 import Slider from "@/components/Input/Slider";
 import { useSortingAlgoContext } from "./context/Visualizer";
 import Select from "@/components/Input/Select";
-import { algoOptions } from "./lib/utils";
+import { algoOptions, generateAnimationArray } from "./lib/utils";
 import React, { useEffect } from "react";
 import { SortingAlgoType } from "./lib/types";
+import { RxReset } from "react-icons/rx";
+import { FaPlayCircle } from "react-icons/fa";
 
 export default function Home() {
   const {
@@ -14,16 +16,30 @@ export default function Home() {
     animationSpeed,
     setAnimationSpeed,
     selectedAlgo,
-    setSelectedAlgo
+    setSelectedAlgo,
+    requireReset,
+    resetArrayAndAnimation,
+    runAnimation
   } = useSortingAlgoContext();
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedAlgo(e.target.value as SortingAlgoType)
   }
 
-  useEffect(() => {
-    console.log("selectedAlgo", selectedAlgo)
-  }, [selectedAlgo])
+  const handlePlay = () => {
+    if (requireReset) {
+      resetArrayAndAnimation();
+      return;
+    }
+
+    generateAnimationArray(
+      selectedAlgo,
+      isSorting,
+      arrayToSort,
+      runAnimation
+    )
+
+  }
 
   return (
     <main className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
@@ -47,7 +63,14 @@ export default function Home() {
                 isDisabled={isSorting}
               />
               <button className="flex items-center justify-center"
-                ></button>
+                onClick={handlePlay}
+              >
+                {requireReset ?
+                  (<RxReset className="text-gray-400 h-8 w-8" />)
+                  :
+                  (<FaPlayCircle className="text-system-green60 h-8 w-8" />)
+                }
+              </button>
             </div>
           </div>
           <div className="relative h-[calc(100vh-66px)] w-full">
