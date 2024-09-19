@@ -2,14 +2,9 @@
 
 import Slider from "@/components/Input/Slider";
 import { useSortingAlgoContext } from "./context/Visualizer";
-import { useEffect } from "react";
 
 export default function Home() {
   const { arrayToSort, isSorting, animationSpeed, setAnimationSpeed } = useSortingAlgoContext();
-
-  useEffect(() => {
-    console.log("animation Speed = ", animationSpeed)
-  }, [animationSpeed])
 
   return (
     <main className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">

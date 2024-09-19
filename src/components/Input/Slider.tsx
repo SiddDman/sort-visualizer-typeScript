@@ -13,7 +13,7 @@ const Slider = ({
     max?: number;
     step?: number;
     value: number;
-    handleChange: (e: React.ChangeEvent<HTMLImageElement>) => void;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     isDisabled?: boolean
 }) => {
     return (
