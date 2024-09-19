@@ -116,6 +116,27 @@ export const SortingAlgoContextProvider = ({ children }: { children: React.React
                 }
             }, index * inverseSpeed);
         });
+
+        //Add a green color pulse to the sorted array
+        const finalTimeOut = animations.length * inverseSpeed;
+        setTimeout(() => {
+
+            setTimeout(() => {
+                Array.from(arrayLines).forEach((line) => {
+                    line.classList.add("pulse-animation", "change-line-color");
+                    line.classList.remove("default-line-color");
+                });
+
+                setTimeout(() => {
+                    Array.from(arrayLines).forEach((line) => {
+                        line.classList.remove("pulse-animation", "change-line-color");
+                        line.classList.add("default-line-color");
+                    });
+                    setIsSorting(false)
+                    setIsAnimationComplete(true)
+                }, 1000);
+            }, 100);
+        }, finalTimeOut);
     };
 
     const value = {

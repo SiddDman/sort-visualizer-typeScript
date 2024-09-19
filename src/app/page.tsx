@@ -3,7 +3,7 @@
 import Slider from "@/components/Input/Slider";
 import { useSortingAlgoContext } from "./context/Visualizer";
 import Select from "@/components/Input/Select";
-import { algoOptions, generateAnimationArray } from "./lib/utils";
+import { algoOptions, generateAnimationArray, sortAlgoData } from "./lib/utils";
 import React, { useEffect } from "react";
 import { SortingAlgoType } from "./lib/types";
 import { RxReset } from "react-icons/rx";
@@ -42,7 +42,7 @@ export default function Home() {
   }
 
   return (
-    <main className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+    <main className="absolute top-0 inset-0 -z-10 h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
       <div className="flex h-full justify-center">
         <div id='content-container'
           className="flex max-w-[1020px] w-full flex-col lg:px-0 px-4">
@@ -71,6 +71,38 @@ export default function Home() {
                   (<FaPlayCircle className="text-system-green60 h-8 w-8" />)
                 }
               </button>
+            </div>
+            <div className="hidden sm:flex absolute top-[120%] left-0 w-full">
+              <div className="flex w-full text-gray-400 p-4 rounded border border-system-blue20 bg-system-blue65 bg-opacity-10 gap-6">
+                <div className="flex flex-col items-start justify-start w-3/4">
+                  <h3 className="text-lg">
+                    {sortAlgoData[selectedAlgo].title}
+                  </h3>
+                  <p className="text-sm text-gray-500 pt-2">
+                    {sortAlgoData[selectedAlgo].description}
+                  </p>
+                </div>
+
+                <div className="flex flex-col items-start justify-start w-1/4 gap-2">
+                  <h3 className="text-lg">
+                    Time Complexity
+                  </h3>
+                  <div className="flex flex-col gap-2">
+                    <p className="flex w-full text-sm text-gray-500">
+                      <span className="w-28">Worst Case</span>
+                      <span>{sortAlgoData[selectedAlgo].worstCase}</span>
+                    </p>
+                    <p className="flex w-full text-sm text-gray-500">
+                      <span className="w-28">Average Case</span>
+                      <span>{sortAlgoData[selectedAlgo].averageCase}</span>
+                    </p>
+                    <p className="flex w-full text-sm text-gray-500">
+                      <span className="w-28">Best Case</span>
+                      <span>{sortAlgoData[selectedAlgo].bestCase}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="relative h-[calc(100vh-66px)] w-full">
