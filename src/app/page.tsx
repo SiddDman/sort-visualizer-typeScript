@@ -4,7 +4,6 @@ import Slider from "@/components/Input/Slider";
 import { useSortingAlgoContext } from "./context/Visualizer";
 import Select from "@/components/Input/Select";
 import { algoOptions, generateAnimationArray, sortAlgoData } from "./lib/utils";
-import React, { useEffect } from "react";
 import { SortingAlgoType } from "./lib/types";
 import { RxReset } from "react-icons/rx";
 import { FaPlayCircle } from "react-icons/fa";

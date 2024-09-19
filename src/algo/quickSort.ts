@@ -1,7 +1,8 @@
 import { AnimationArrayType } from "@/app/lib/types";
 
 function partition(array: number[], l: number, r: number, animations: AnimationArrayType) {
-    let i = l, j = r + 1, pivot = array[r];
+    let i = l, j = r + 1;
+    const pivot = array[r];
     const flag = true;
     while (flag) {
         while (array[++i] <= pivot) {
