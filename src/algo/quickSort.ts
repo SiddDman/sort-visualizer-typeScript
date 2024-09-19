@@ -1,8 +1,13 @@
 import { AnimationArrayType } from "@/app/lib/types";
 
-function partition(array: number[], l: number, r: number, animations: AnimationArrayType) {
+function partition(
+    array: number[],
+    l: number,
+    r: number,
+    animations: AnimationArrayType
+) {
     let i = l, j = r + 1;
-    const pivot = array[r];
+    const pivot = array[l];
     const flag = true;
     while (flag) {
         while (array[++i] <= pivot) {
@@ -13,7 +18,7 @@ function partition(array: number[], l: number, r: number, animations: AnimationA
         while (array[--j] >= pivot) {
             if (j === l)
                 break;
-            animations.push([[i], false])
+            animations.push([[j], false])
         }
         if (j <= i)
             break;
@@ -31,7 +36,7 @@ function partition(array: number[], l: number, r: number, animations: AnimationA
 function runQuickSort(array: number[], l: number, r: number, animations: AnimationArrayType) {
     if (l < r) {
         const part = partition(array, l, r, animations)
-        runQuickSort(array, l, r - 1, animations)
+        runQuickSort(array, l, part - 1, animations)
         runQuickSort(array, part + 1, r, animations)
     }
 }

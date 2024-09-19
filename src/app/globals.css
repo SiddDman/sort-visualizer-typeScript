@@ -28,7 +28,8 @@ body {
 }
 
 .default-line-color {
-  background-color: theme("colors.system.blue50");
+  /* background-color: theme("colors.system.blue60"); */
+  background-color: theme("colors.system.cloudblue70");
 }
 
 .change-line-color {
@@ -38,6 +39,8 @@ body {
 .pulse-animation {
   animation: pulse 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
 }
+
+
 
 @keyframes pulse {
   0%,

@@ -13,7 +13,7 @@ const Select = ({
     return (
         <div className="inline-block relative w-48" >
             <select
-                className="w-full h-10 px-2 rounded-lg cursor-pointer bg-gray-700"
+                className="w-full h-10 px-2 rounded-lg cursor-pointer bg-gray-700 custom-select"
                 defaultValue={defaultValue}
                 onChange={onChange}
                 disabled={isDisabled}

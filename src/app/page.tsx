@@ -72,7 +72,7 @@ export default function Home() {
               </button>
             </div>
             <div className="hidden sm:flex absolute top-[120%] left-0 w-full">
-              <div className="flex w-full text-gray-400 p-4 rounded border border-system-blue20 bg-system-blue65 bg-opacity-10 gap-6">
+              <div className="flex w-full text-gray-400 p-4 rounded border border-system-blue20 bg-system-blue20 bg-opacity-10 gap-6">
                 <div className="flex flex-col items-start justify-start w-3/4">
                   <h3 className="text-lg">
                     {sortAlgoData[selectedAlgo].title}
