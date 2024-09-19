@@ -3,6 +3,7 @@ import { generateSelectionSortArray } from "@/algo/selectionSort";
 import { generateInsertionSortArray } from "@/algo/insertionSort";
 import { generateMergeSortArray } from "@/algo/mergeSort";
 import { AnimationArrayType, SortingAlgoType } from "./types";
+import { generateQuickSortArray } from "@/algo/quickSort";
 
 export const MIN_ANIMATION_SPEED = 100;
 export const MAX_ANIMATION_SPEED = 400;

@@ -36,7 +36,7 @@ function runQuickSort(array: number[], l: number, r: number, animations: Animati
     }
 }
 
-export function generateMergeSortArray(
+export function generateQuickSortArray(
     isSorting: boolean,
     array: number[],
     runAnimation: (animations: AnimationArrayType) => void
