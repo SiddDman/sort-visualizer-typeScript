@@ -2,9 +2,28 @@
 
 import Slider from "@/components/Input/Slider";
 import { useSortingAlgoContext } from "./context/Visualizer";
+import Select from "@/components/Input/Select";
+import { algoOptions } from "./lib/utils";
+import React, { useEffect } from "react";
+import { SortingAlgoType } from "./lib/types";
 
 export default function Home() {
-  const { arrayToSort, isSorting, animationSpeed, setAnimationSpeed } = useSortingAlgoContext();
+  const {
+    arrayToSort,
+    isSorting,
+    animationSpeed,
+    setAnimationSpeed,
+    selectedAlgo,
+    setSelectedAlgo
+  } = useSortingAlgoContext();
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedAlgo(e.target.value as SortingAlgoType)
+  }
+
+  useEffect(() => {
+    console.log("selectedAlgo", selectedAlgo)
+  }, [selectedAlgo])
 
   return (
     <main className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
@@ -21,6 +40,14 @@ export default function Home() {
                 value={animationSpeed}
                 handleChange={(e) => setAnimationSpeed(Number(e.target.value))}
               />
+              <Select
+                options={algoOptions}
+                defaultValue={selectedAlgo}
+                onChange={handleSelectChange}
+                isDisabled={isSorting}
+              />
+              <button className="flex items-center justify-center"
+                ></button>
             </div>
           </div>
           <div className="relative h-[calc(100vh-66px)] w-full">

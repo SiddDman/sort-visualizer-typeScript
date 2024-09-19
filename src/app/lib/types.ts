@@ -3,4 +3,9 @@ export type SortingAlgoType =
     | "insertion"
     | "selection"
     | "quick"
-    | "merge"
+    | "merge";
+
+export type SelectOptionsType = {
+    value: string,
+    label: string
+};
