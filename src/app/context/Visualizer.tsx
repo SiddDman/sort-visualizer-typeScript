@@ -120,7 +120,6 @@ export const SortingAlgoContextProvider = ({ children }: { children: React.React
         //Add a green color pulse to the sorted array
         const finalTimeOut = animations.length * inverseSpeed;
         setTimeout(() => {
-
             setTimeout(() => {
                 Array.from(arrayLines).forEach((line) => {
                     line.classList.add("pulse-animation", "change-line-color");

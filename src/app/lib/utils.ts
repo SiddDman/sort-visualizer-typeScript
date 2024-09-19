@@ -1,4 +1,7 @@
 import { generateBubbleSortArray } from "@/algo/bubbleSort";
+import { generateSelectionSortArray } from "@/algo/selectionSort";
+import { generateInsertionSortArray } from "@/algo/insertionSort";
+import { generateMergeSortArray } from "@/algo/mergeSort";
 import { AnimationArrayType, SortingAlgoType } from "./types";
 
 export const MIN_ANIMATION_SPEED = 100;
@@ -26,6 +29,18 @@ export function generateAnimationArray(
     switch (selectedAlgo) {
         case "bubble":
             generateBubbleSortArray(isSorting, array, runAnimation)
+            break;
+        case "selection":
+            generateSelectionSortArray(isSorting, array, runAnimation)
+            break;
+        case "insertion":
+            generateInsertionSortArray(isSorting, array, runAnimation)
+            break;
+        case "merge":
+            generateMergeSortArray(isSorting, array, runAnimation)
+            break;
+        case "quick":
+            generateQuickSortArray(isSorting, array, runAnimation)
             break;
         default:
             break;
