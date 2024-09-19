@@ -40,8 +40,6 @@ body {
   animation: pulse 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
 }
 
-
-
 @keyframes pulse {
   0%,
   100% {

@@ -13,13 +13,13 @@ const Select = ({
     return (
         <div className="inline-block relative w-48" >
             <select
-                className="w-full h-10 px-2 rounded-lg cursor-pointer bg-gray-700 custom-select"
+                className="w-full h-10 px-2 cursor-pointer rounded-lg bg-gray-700"
                 defaultValue={defaultValue}
                 onChange={onChange}
                 disabled={isDisabled}
             >
                 {options.map((option) => (
-                    <option key={option.value} value={option.value}>
+                    <option key={option.value} value={option.value} >
                         {option.label}
                     </option>
                 ))}
