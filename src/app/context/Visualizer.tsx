@@ -1,9 +1,11 @@
+"use client"
+
 import { createContext, useContext, useState } from "react"
 import { SortingAlgoType } from "../lib/types"
 import { MAX_ANIMATION_SPEED } from "../lib/utils";
 
 interface SortingAlgoContextType {
-    arrayToSprt: number[],
+    arrayToSort: number[],
     setArrayToSort: (array: number[]) => void,
     selectedAlgo: SortingAlgoType,
     setSelectedAlgo: (algo: SortingAlgoType) => void,
@@ -19,8 +21,8 @@ interface SortingAlgoContextType {
 
 const SortingAlgoContext = createContext<SortingAlgoContextType | undefined>(undefined)
 
-export const SortingAlgorithmContextProvider = ({ children }: { children: React.ReactNode }) => {
-    const [arrayToSprt, setArrayToSort] = useState<number[]>([])
+export const SortingAlgoContextProvider = ({ children }: { children: React.ReactNode }) => {
+    const [arrayToSort, setArrayToSort] = useState<number[]>([100, 300, 250, 75])
     const [selectedAlgo, setSelectedAlgo] = useState<SortingAlgoType>("bubble")
     const [isSorting, setIsSorting] = useState<boolean>(false)
     const [animationSpeed, setAnimationSpeed] = useState<number>(MAX_ANIMATION_SPEED)
@@ -32,7 +34,7 @@ export const SortingAlgorithmContextProvider = ({ children }: { children: React.
     const runAnimation = () => { }
 
     const value = {
-        arrayToSprt,
+        arrayToSort,
         setArrayToSort,
         selectedAlgo,
         setSelectedAlgo,
@@ -52,7 +54,7 @@ export const SortingAlgorithmContextProvider = ({ children }: { children: React.
     </SortingAlgoContext.Provider>
 }
 
-export const useSortingALgoConstext = () => {
+export const useSortingAlgoContext = () => {
     const context = useContext(SortingAlgoContext);
     if (!context) {
         throw new Error("useSortingAlgoContext must be used within a SortingAlgoProvider")
